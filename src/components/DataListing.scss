@@ -1,0 +1,12 @@
+Table {
+    max-width: 900px;
+    border: 1px solid gray;
+
+    Thead {
+        background-color: #c6ff97;
+    }
+    
+    Tr:nth-child(even) {
+        background-color: #c6ff97;
+    }
+}
