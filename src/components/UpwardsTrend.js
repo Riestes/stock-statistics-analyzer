@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UpwardTrends = ({ startDate, endDate, data, handleEndDateChange, handleStartDateChange, appendLeadingZeroes }) => {
+const UpwardTrends = ({ startDate, endDate, data, appendLeadingZeroes }) => {
 
     let closingArray = [];
     let i = 0;

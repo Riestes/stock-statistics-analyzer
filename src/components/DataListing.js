@@ -1,7 +1,8 @@
 import React from 'react';
+//Super responsive tables
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
-
+//Style
 import './DataListing.scss'
 
 const DataListing = ({ data, startDate, endDate, radioValue, appendLeadingZeroes }) => {
@@ -67,7 +68,6 @@ const DataListing = ({ data, startDate, endDate, radioValue, appendLeadingZeroes
                     </Tr>
                 )}
             </Tbody>
-               
         </Table>
     );
 }

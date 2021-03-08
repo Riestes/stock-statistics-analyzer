@@ -1,12 +1,11 @@
-Table {
+table {
     max-width: 900px;
-    border: 1px solid gray;
 
-    Thead {
+    thead {
         background-color: #c6ff97;
     }
-    
-    Tr:nth-child(even) {
+
+    tr:nth-child(even) {
         background-color: #c6ff97;
     }
 }

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-
+//Components
+import Filter from './components/Filter';
+import DateForm from './components/DateForm';
+import ResetButton from './components/buttons/ResetButton';
 import dataService from './services/dataService';
 import DataListing from './components/DataListing'
 import UpwardsTrend from './components/UpwardsTrend';
-
+//Style
 import './App.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 
@@ -91,6 +95,7 @@ const App = () => {
   }
 
   const onChangeValue = (event) => {
+    event.preventDefault();
     setRadioValue(event.target.value)
   }
 
@@ -108,16 +113,13 @@ const App = () => {
     <div className="App">
       <h1>Stock Statistics</h1>
       <h3>Scrooge McDuck</h3>
-      <form>
-        <div className="dates">
-          <p>Search Dates</p>
-          <label>Start</label>
-          <input type="date" value={startDate} min="2020-01-01" max="2021-01-31" onChange={handleStartDateChange}></input>
-          <label>End</label>
-          <input type="date" value={endDate} max="2021-01-31" onChange={handleEndDateChange}></input>
-        </div>
-      </form>
-      <button className="reset-btn" onClick={handleResetClick}>Reset dates</button>
+      <DateForm
+        startDate={startDate}
+        endDate={endDate}
+        handleStartDateChange={handleStartDateChange}
+        handleEndDateChange={handleEndDateChange}
+      />
+      <ResetButton handleResetClick={handleResetClick}/>
       <UpwardsTrend
         handleStartDateChange={handleStartDateChange}
         handleEndDateChange={handleEndDateChange}
@@ -126,15 +128,7 @@ const App = () => {
         data={data}
         appendLeadingZeroes={appendLeadingZeroes}
       />
-      <h4>Filter listing</h4>
-      by
-      <div className="filters" onChange={onChangeValue}>
-        <select>
-          <option value="date">Date</option>
-          <option value="volume">Volume</option>
-          <option value="smaPercentage">SMA5 %</option>
-        </select>
-      </div>
+      <Filter onChangeValue={onChangeValue}/>
       <DataListing
         radioValue={radioValue}
         startDate={startDate}
